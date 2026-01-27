@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodHub - Delicious Food Delivered</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-utensils"></i>
+                <span>FoodHub</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="menu.html" class="nav-link">Menu</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="strategies.html" class="nav-link">Stragies</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                
+            </ul>
+            <div class="nav-icons">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <li id="authButtons">
+                    <button class="btn btn-outline" onclick="showLoginModal()" style="border: 2px solid #ff6b35">Login</button>
+                    <button class="btn btn-primary" onclick="showRegisterModal()">Register</button>
+                </li>
+                <li id="userProfile" style="display: none;">
+                    <div class="user-dropdown">
+                        <img id="userAvatar" src="https://i.pinimg.com/736x/8b/16/7a/8b167a9e9c1a9c0c0c0c0c0c0c0c0c0.jpg" alt="User" class="user-avatar">
+                        <span id="userName">User</span>
+                        <ul class="user-menu">
+                            <li><a href="#" onclick="showProfile()"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="#" onclick="showSettings()"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Delicious Food <span><br>Delivered Fast To You</span></h1>
+                <p>Order your favorite meals from comfort of your home. Fresh ingredients, amazing taste!</p>
+                <div class="hero-buttons">
+                    <a href="menu.html" class="btn btn-primary">Order Now</a>
+                    <a href="#featured" class="btn btn-secondary">View Menu</a>
+                </div>
+            </div>
+            <!-- <div class="hero-image">
+                <img src="https://i.pinimg.com/736x/58/2d/c4/582dc4bcf7222205812391e8d7ce3cfd.jpg" alt="Delicious Food">
+            </div> -->
+        </div>
+    </section>
+
+    <section class="order-process">
+        <div class="container">
+            <h2>How It Works</h2>
+            <p>Get your favorite food delivered in 3 simple steps</p>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Browse Menu</h3>
+                    <p>Explore our wide variety of delicious food options from local restaurants</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Place Order</h3>
+                    <p>Add items to cart and securely checkout with your preferred payment method</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Enjoy Delivery</h3>
+                    <p>Track your order and enjoy hot, fresh food delivered to your door</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section class="special-offers">
+        <div class="container">
+            <h2>Special Offers & Deals</h2>
+            <p>Save big on your favorite meals</p>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <div class="offer-badge">20% OFF</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>First Order Discount</h3>
+                    <p>Get 20% off on your first order with code: FIRST20</p>
+                    <button class="btn btn-primary" onclick="applyOffer('FIRST20')">Apply Code</button>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-badge">FREE</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Free Delivery</h3>
+                    <p>Free delivery on orders above $30. No code required!</p>
+                    <button class="btn btn-secondary" onclick="showDeliveryInfo">Learn More</button>
+                </div>
+                <div class="offer-card">
+                    <div class="offer-badge">BOGO</div>
+                    <div class="offer-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>Buy One Get One</h3>
+                    <p>Buy one pizza, get one free on weekends only!</p>
+                    <button class="btn btn-primary" onclick="showWeekendDeals()">View Deals</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-truck"></i>
+                    <h3>Fast Delivery</h3>
+                    <p>30 minutes or less delivery guarantee</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Fresh Ingredients</h3>
+                    <p>Only the freshest and quality ingredients</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-award"></i>
+                    <h3>Best Quality</h3>
+                    <p>Award-winning chefs and recipes</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Customer support available anytime</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Foods Section -->
+    <section id="featured" class="featured-foods">
+        <div class="container">
+            <h2>Featured Foods</h2>
+            <div class="food-grid" id="featuredFoodGrid">
+                <!-- Featured foods will be loaded here -->
+            </div>
+            <!-- <div class="text-center">
+                <a href="menu.html" class="btn btn-primary">View Full Menu</a>
+            </div> -->
+        </div>
+    </section>
+
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Amazing food quality and super fast delivery! The burgers are juicy and the pizza is always fresh. Highly recommend!"</p>
+                    <div class="customer">
+                        <img src="https://i.pinimg.com/736x/5b/5a/c8/5b5ac861baec684c2232f4edc15a865f.jpg" alt="Customer">
+                        <div>
+                            <h4>John Doe</h4>
+                            <p>Regular Customer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"Best food delivery service in town! The website is easy to use and the customer service is exceptional. Will order again!"</p>
+                    <div class="customer">
+                        <img src="https://i.pinimg.com/736x/9e/45/54/9e455491ed0ac39a72c60c456652596c.jpg" alt="Customer">
+                        <div>
+                            <h4>Jane Smith</h4>
+                            <p>Happy Customer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"The variety of food options is incredible. From healthy salads to indulgent desserts, FoodHub has it all. Love the dark mode feature!"</p>
+                    <div class="customer">
+                        <img src="https://i.pinimg.com/736x/ef/97/25/ef972507d073f998e8091814528e86d1.jpg" alt="Customer">
+                        <div>
+                            <h4>Mike Johnson</h4>
+                            <p>Food Lover</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-utensils"></i>
+                        <span>FoodHub</span>
+                    </div>
+                    <p>Your trusted partner for delicious food delivery. Quality, taste, and convenience in every order.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="menu.html?category=pizza">Pizza</a></li>
+                        <li><a href="menu.html?category=burger">Burger</a></li>
+                        <li><a href="menu.html?category=drinks">Drinks</a></li>
+                        <li><a href="menu.html?category=dessert">Dessert</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Food Street, Culinary City</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@foodhub.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FoodHub. All rights reserved. Made with <i class="fas fa-heart"></i> for food lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to Your Account</h2>
+                <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="#" onclick="switchToRegister()">Register</a></p>
+                    <p><a href="#" onclick="forgotPassword()">Forgot Password?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Your Account</h2>
+                <button class="close-btn" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span>I agree to the <a href="#">Terms and Conditions</a></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Register</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="#" onclick="switchToLogin()">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>My Profile</h2>
+                <button class="close-btn" onclick="closeModal('profileModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-header">
+                    <img id="profileAvatar" src="https://i.pinimg.com/736x/8b/16/7a/8b167a9e9c1a9c0c0c0c0c0c0c0c0c0.jpg" alt="Profile" class="profile-avatar">
+                    <button class="btn btn-secondary btn-sm" onclick="changeAvatar()">Change Avatar</button>
+                </div>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="profileName">Full Name</label>
+                        <input type="text" id="profileName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail">Email</label>
+                        <input type="email" id="profileEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePhone">Phone</label>
+                        <input type="tel" id="profilePhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="profileAddress">Address</label>
+                        <textarea id="profileAddress" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Update Profile</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

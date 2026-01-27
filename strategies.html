@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategies - FoodHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-utensils"></i>
+                <span>FoodHub</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="menu.html" class="nav-link">Menu</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="strategies.html" class="nav-link active">Stragies</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                
+            </ul>
+            <div class="nav-icons">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <li id="authButtons">
+                    <button class="btn btn-outline" onclick="showLoginModal()" style="border: 2px solid #ff6b35">Login</button>
+                    <button class="btn btn-primary" onclick="showRegisterModal()">Register</button>
+                </li>
+                <li id="userProfile" style="display: none;">
+                    <div class="user-dropdown">
+                        <img id="userAvatar" src="https://i.pinimg.com/736x/8b/16/7a/8b167a9e9c1a9c0c0c0c0c0c0c0c0c0.jpg" alt="User" class="user-avatar">
+                        <span id="userName">User</span>
+                        <ul class="user-menu">
+                            <li><a href="#" onclick="showProfile()"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="#" onclick="showSettings()"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Our Strategies <span>for Delivering Excellence</span></h1>
+                <p>Discover how FoodHub combines smart technology, customer obsession, and operational precision to lead in food delivery.</p>
+                
+            </div>
+        </div>
+    </section> -->
+
+    <section class="stragies-header">
+        <div class="container">
+            <h1>Our Stragies</h1>
+            <p>Discover how FoodHub combines smart technology, customer obsession, and operational precision to lead in food delivery.</</p>
+        </div>
+    </section>
+
+    <!-- Strategies Section -->
+    <section class="strategies-section" id="strategies">
+        <div class="container">
+            <div class="section-header">
+                <h2>Strategies for Starting a Food App Business</h2>
+                <p>Starting a food app business can be exciting. Follow these proven strategies:<p>
+            </div>
+            
+            <div class="strategies-grid">
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Know Your Market</h3>
+                    <ul>
+                        <li>Identify your target audience (Students, Office Workers, Families, Tourists) and understand their needs</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Partner with Quality Restaurants</h3>
+                    <ul>
+                        <li>Choose restaurants with good food quality, clean kitchens, and fast preparation</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-hand-pointer"></i>
+                    </div>
+                    <h3>Build an Easy-to-Use App</h3>
+                    <ul>
+                        <li>Keep registration simple, search intuitive, and ordering process quick and seamlessli>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-truck-fast"></i>
+                    </div>
+                    <h3>Ensure Reliable Delivery</h3>
+                    <ul>
+                        <li>Hire trained delivery drivers, track orders in real-time, and deliver food on time consistently</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-scale-balanced"></i>
+                    </div>
+                    <h3>Fair Pricing & Business Model</h3>
+                    <ul>
+                        <li>Set reasonable delivery fees, fair commission for restaurants, and offer occasional promotions</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Marketing & Customer Loyalty</h3>
+                    <ul>
+                        <li>Use first-order discounts, promo codes, loyalty points, and special offers to attract and retain users</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Excellent Customer Support</h3>
+                    <ul>
+                        <li>Provide in-app chat or hotline support, respond quickly to issues, and offer refunds/compensation when needed</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Use Data to Grow</h3>
+                    <ul>
+                        <li>Track popular foods, peak order times, and analyze customer behavior to improve your service</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Legal & Compliance</h3>
+                    <ul>
+                        <li>Register your business legally, follow food safety regulations, and create clear contracts with restaurants and drivers</li>
+                    </ul>
+                </div>
+
+                <div class="strategy-card">
+                    <div class="strategy-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Start Small, Scale Smart</h3>
+                    <ul>
+                        <li>Launch in one city first, fix problems, improve continuously, and expand step by step</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Experience the FoodHub Difference</h2>
+                <p>Join thousands who already enjoy faster, smarter food delivery every day.</p>
+                <a href="menu.html" class="btn btn-primary btn-large">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-utensils"></i>
+                        <span>FoodHub</span>
+                    </div>
+                    <p>Your trusted partner for delicious food delivery. Quality, taste, and convenience — every time.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="menu.html?category=pizza">Pizza</a></li>
+                        <li><a href="menu.html?category=burger">Burger</a></li>
+                        <li><a href="menu.html?category=drinks">Drinks</a></li>
+                        <li><a href="menu.html?category=dessert">Dessert</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Food Street, Culinary City</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@foodhub.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FoodHub. All rights reserved. Made with <i class="fas fa-heart"></i> for food lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to Your Account</h2>
+                <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="#" onclick="switchToRegister()">Register</a></p>
+                    <p><a href="#" onclick="forgotPassword()">Forgot Password?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Your Account</h2>
+                <button class="close-btn" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span>I agree to the <a href="#">Terms and Conditions</a></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Register</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="#" onclick="switchToLogin()">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>My Profile</h2>
+                <button class="close-btn" onclick="closeModal('profileModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-header">
+                    <img id="profileAvatar" src="https://i.pravatar.cc/150" alt="Profile" class="profile-avatar">
+                    <button class="btn btn-secondary btn-sm" onclick="changeAvatar()">Change Avatar</button>
+                </div>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="profileName">Full Name</label>
+                        <input type="text" id="profileName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail">Email</label>
+                        <input type="email" id="profileEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePhone">Phone</label>
+                        <input type="tel" id="profilePhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="profileAddress">Address</label>
+                        <textarea id="profileAddress" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Update Profile</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>

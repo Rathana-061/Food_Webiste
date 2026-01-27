@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - FoodHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-utensils"></i>
+                <span>FoodHub</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="menu.html" class="nav-link active">Menu</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="strategies.html" class="nav-link">Stragies</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                
+            </ul>
+            <div class="nav-icons">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <li id="authButtons">
+                    <button class="btn btn-outline" onclick="showLoginModal()" style="border: 2px solid #ff6b35">Login</button>
+                    <button class="btn btn-primary" onclick="showRegisterModal()">Register</button>
+                </li>
+                <li id="userProfile" style="display: none;">
+                    <div class="user-dropdown">
+                        <img id="userAvatar" src="https://i.pinimg.com/736x/8b/16/7a/8b167a9e9c1a9c0c0c0c0c0c0c0c0c0.jpg" alt="User" class="user-avatar">
+                        <span id="userName">User</span>
+                        <ul class="user-menu">
+                            <li><a href="#" onclick="showProfile()"><i class="fas fa-user"></i> Profile</a></li>
+                            <li><a href="#" onclick="showSettings()"><i class="fas fa-cog"></i> Settings</a></li>
+                            <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+        </div>
+    </nav>
+
+    <!-- Menu Header -->
+    <section class="menu-header">
+        <div class="container">
+            <h1>Our Menu</h1>
+            <p>Discover our delicious selection of foods</p>
+        </div>
+    </section>
+
+    <!-- Search and Filter Section -->
+    <section class="menu-controls">
+        <div class="container">
+            <div class="search-filter-container">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search for food...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="pizza">Pizza</button>
+                    <button class="filter-btn" data-category="burger">Burger</button>
+                    <button class="filter-btn" data-category="drinks">Drinks</button>
+                    <button class="filter-btn" data-category="dessert">Dessert</button>
+                    <button class="filter-btn" data-category="pasta">Pasta</button>
+                    <button class="filter-btn" data-category="salad">Salad</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Items -->
+    <section class="menu-items">
+        <div class="container">
+            <div class="food-grid" id="menuFoodGrid">
+                <!-- Food items will be loaded here -->
+            </div>
+            <!-- <div class="load-more-container">
+                <button class="btn btn-secondary" id="loadMoreBtn">Load More</button>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Food Detail Modal -->
+    <div class="modal" id="foodModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="food-detail">
+                <div class="food-detail-image">
+                    <img id="modalFoodImage" src="" alt="">
+                </div>
+                <div class="food-detail-info">
+                    <h2 id="modalFoodName"></h2>
+                    <div class="food-rating" id="modalFoodRating"></div>
+                    <p id="modalFoodDescription"></p>
+                    <div class="food-price">
+                        <span id="modalFoodPrice"></span>
+                    </div>
+                    <div class="quantity-selector">
+                        <label>Quantity:</label>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn minus">-</button>
+                            <input type="number" id="modalQuantity" value="1" min="1" max="10">
+                            <button class="quantity-btn plus">+</button>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-primary" id="modalAddToCart">Add to Cart</button>
+                        <button class="btn btn-secondary" id="modalCloseBtn">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-utensils"></i>
+                        <span>FoodHub</span>
+                    </div>
+                    <p>Your trusted partner for delicious food delivery. Quality, taste, and convenience in every order.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="menu.html?category=pizza">Pizza</a></li>
+                        <li><a href="menu.html?category=burger">Burger</a></li>
+                        <li><a href="menu.html?category=drinks">Drinks</a></li>
+                        <li><a href="menu.html?category=dessert">Dessert</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Food Street, Culinary City</p>
+                    <p><i class="fas fa-phone"></i> +1 234 567 8900</p>
+                    <p><i class="fas fa-envelope"></i> info@foodhub.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FoodHub. All rights reserved. Made with <i class="fas fa-heart"></i> for food lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to Your Account</h2>
+                <button class="close-btn" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Login</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Don't have an account? <a href="#" onclick="switchToRegister()">Register</a></p>
+                    <p><a href="#" onclick="forgotPassword()">Forgot Password?</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Your Account</h2>
+                <button class="close-btn" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerName">Full Name</label>
+                        <input type="text" id="registerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span>I agree to the <a href="#">Terms and Conditions</a></span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Register</button>
+                </form>
+                <div class="auth-footer">
+                    <p>Already have an account? <a href="#" onclick="switchToLogin()">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>My Profile</h2>
+                <button class="close-btn" onclick="closeModal('profileModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-header">
+                    <img id="profileAvatar" src="https://i.pravatar.cc/150" alt="Profile" class="profile-avatar">
+                    <button class="btn btn-secondary btn-sm" onclick="changeAvatar()">Change Avatar</button>
+                </div>
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label for="profileName">Full Name</label>
+                        <input type="text" id="profileName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profileEmail">Email</label>
+                        <input type="email" id="profileEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="profilePhone">Phone</label>
+                        <input type="tel" id="profilePhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="profileAddress">Address</label>
+                        <textarea id="profileAddress" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Update Profile</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
